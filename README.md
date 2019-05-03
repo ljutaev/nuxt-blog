@@ -1,6 +1,6 @@
 # nuxt-blog
 
-> My awesome nuxt fullstack blog
+> Nuxt fullstack blog
 
 ## Build Setup
 
