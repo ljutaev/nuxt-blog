@@ -25,8 +25,8 @@
 export default {
     methods: {
         openPost() {
-            console.log('Open Post')
-            alert(1)
+            const id = 'test-id';
+            this.$router.push(`/post/${id}`);
         }
     }
 }
