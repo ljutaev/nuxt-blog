@@ -5,9 +5,11 @@ import '..\\node_modules\\element-ui\\lib\\theme-chalk\\index.css'
 
 import '..\\theme\\index.sass'
 
+import _77068119 from '..\\layouts\\admin.vue'
 import _6f6c098b from '..\\layouts\\default.vue'
+import _77430317 from '..\\layouts\\empty.vue'
 
-const layouts = { "_default": _6f6c098b }
+const layouts = { "_admin": _77068119,"_default": _6f6c098b,"_empty": _77430317 }
 
 export default {
   head: {"title":"nuxt-blog","meta":[{"charset":"utf-8"},{"name":"viewport","content":"width=device-width, initial-scale=1"},{"hid":"description","name":"description","content":"My awesome nuxt fullstack blog"}],"link":[{"rel":"icon","type":"image\u002Fx-icon","href":"\u002Ffavicon.ico"}],"style":[],"script":[]},

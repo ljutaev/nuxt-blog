@@ -2,6 +2,12 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import { interopDefault } from './utils'
 
+const _2dc2efa3 = () => interopDefault(import('..\\pages\\admin\\index.vue' /* webpackChunkName: "pages_admin_index" */))
+const _9b61610a = () => interopDefault(import('..\\pages\\admin\\create.vue' /* webpackChunkName: "pages_admin_create" */))
+const _1fd9e846 = () => interopDefault(import('..\\pages\\admin\\list.vue' /* webpackChunkName: "pages_admin_list" */))
+const _112ada8c = () => interopDefault(import('..\\pages\\admin\\login.vue' /* webpackChunkName: "pages_admin_login" */))
+const _42f8cd09 = () => interopDefault(import('..\\pages\\admin\\logout.vue' /* webpackChunkName: "pages_admin_logout" */))
+const _e0082eec = () => interopDefault(import('..\\pages\\admin\\user.vue' /* webpackChunkName: "pages_admin_user" */))
 const _62e3e66c = () => interopDefault(import('..\\pages\\post\\_id.vue' /* webpackChunkName: "pages_post__id" */))
 const _87a037fc = () => interopDefault(import('..\\pages\\index.vue' /* webpackChunkName: "pages_index" */))
 
@@ -66,6 +72,30 @@ export function createRouter() {
     scrollBehavior,
 
     routes: [{
+      path: "/admin",
+      component: _2dc2efa3,
+      name: "admin"
+    }, {
+      path: "/admin/create",
+      component: _9b61610a,
+      name: "admin-create"
+    }, {
+      path: "/admin/list",
+      component: _1fd9e846,
+      name: "admin-list"
+    }, {
+      path: "/admin/login",
+      component: _112ada8c,
+      name: "admin-login"
+    }, {
+      path: "/admin/logout",
+      component: _42f8cd09,
+      name: "admin-logout"
+    }, {
+      path: "/admin/user",
+      component: _e0082eec,
+      name: "admin-user"
+    }, {
       path: "/post/:id?",
       component: _62e3e66c,
       name: "post-id"
