@@ -4,6 +4,22 @@
     </div>
 </template>
 
+<script>
+export default {
+    computed: {
+        error() {
+            return this.$store.getters.error
+        }
+    },
+    watch: {
+        error(value) {
+            console.log(value)
+            this.$message.error(value)
+        }
+    }
+}
+</script>
+
 <style lang="sass" scoped>
     .empty-layout
         display: flex
