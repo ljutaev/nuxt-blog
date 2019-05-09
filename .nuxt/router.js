@@ -8,6 +8,7 @@ const _1fd9e846 = () => interopDefault(import('..\\pages\\admin\\list.vue' /* we
 const _112ada8c = () => interopDefault(import('..\\pages\\admin\\login.vue' /* webpackChunkName: "pages_admin_login" */))
 const _42f8cd09 = () => interopDefault(import('..\\pages\\admin\\logout.vue' /* webpackChunkName: "pages_admin_logout" */))
 const _e0082eec = () => interopDefault(import('..\\pages\\admin\\user.vue' /* webpackChunkName: "pages_admin_user" */))
+const _3aff402a = () => interopDefault(import('..\\pages\\admin\\post\\_id.vue' /* webpackChunkName: "pages_admin_post__id" */))
 const _62e3e66c = () => interopDefault(import('..\\pages\\post\\_id.vue' /* webpackChunkName: "pages_post__id" */))
 const _87a037fc = () => interopDefault(import('..\\pages\\index.vue' /* webpackChunkName: "pages_index" */))
 
@@ -95,6 +96,10 @@ export function createRouter() {
       path: "/admin/user",
       component: _e0082eec,
       name: "admin-user"
+    }, {
+      path: "/admin/post/:id?",
+      component: _3aff402a,
+      name: "admin-post-id"
     }, {
       path: "/post/:id?",
       component: _62e3e66c,

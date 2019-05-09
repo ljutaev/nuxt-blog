@@ -12,31 +12,40 @@
         <span style="margin-left: 10px">{{ new Date(date).toLocaleString() }}</span>
       </template>
     </el-table-column>
-    <el-table-column
-      label="Name"
-      width="180">
-      <template slot-scope="scope">
-        <el-popover trigger="hover" placement="top">
-          <p>Name: {{ scope.row.name }}</p>
-          <p>Addr: {{ scope.row.address }}</p>
-          <div slot="reference" class="name-wrapper">
-            <el-tag size="medium">{{ scope.row.name }}</el-tag>
-          </div>
-        </el-popover>
+
+    <el-table-column prop="views" label="Просмотры">
+      <template slot-scope="{row: {views}}">
+        <i class="el-icon-view"></i>
+        <span style="margin-left: 10px">{{ views }}</span>
       </template>
     </el-table-column>
-    <el-table-column
-      label="Operations">
-      <template slot-scope="scope">
-        <el-button
+
+    <el-table-column prop="views" label="Комментарии">
+      <template slot-scope="{row: {comments}}">
+        <i class="el-icon-message"></i>
+        <span style="margin-left: 10px">{{ comments.length }}</span>
+      </template>
+    </el-table-column>
+
+    <el-table-column label="Действия">
+      <template slot-scope="{row}">
+        <el-tooltip effect="light" content="Открыть пост" placement="top">
+          <el-button
+          icon="el-icon-edit"
           size="mini"
-          @click="handleEdit(scope.$index, scope.row)">Edit</el-button>
-        <el-button
+          type="primary"
+          @click="open(row._id)" />
+        </el-tooltip>
+        <el-tooltip effect="light" content="Удалить пост" placement="top">
+          <el-button
+          icon="el-icon-delete"
           size="mini"
           type="danger"
-          @click="handleDelete(scope.$index, scope.row)">Delete</el-button>
+          @click="remove(row._id)" />
+        </el-tooltip>
       </template>
     </el-table-column>
+
   </el-table>
 </template>
 
@@ -47,6 +56,27 @@ export default {
     async asyncData({store}) {
         const posts = await store.dispatch('post/fetchAdmin')
         return {posts}
+    },
+    methods: {
+      open(id) {
+        console.log('open', id)
+        this.$router.push(`/admin/post/${id}`)
+      },
+      async remove(id) {
+        try{
+          await this.$confirm('Удалить пост?', 'Внимание', {
+            confirmButtonText: 'Да',
+            cancelButtonText: 'Отменить',
+            type: 'warning'
+          })
+
+          await this.$store.dispatch('post/remove', id)
+          this.posts = this.posts.filter(p => p._id != id)
+
+          this.$message.success('Пост Удален')
+        } catch (e) {}
+        
+      },
     }
 }
 </script>
