@@ -16,8 +16,22 @@ export const actions = {
     async update({}, {id, text}) {
         console.log('update vuex')
     },
-    async create({}, {title, text}) {
+    async create({commit}, {title, text, image}) {
         console.log('create vuex')
+
+        try {
+
+            const fd = new FormData()
+
+            fd.append('title', title)
+            fd.append('text', text)
+            fd.append('image', image, image.name)
+
+        } catch (e) {
+            commit('setError', e, {root: true})
+            throw e
+        }
+
         return await new Promise (resolve => {
             setTimeout(() => {
                 resolve()
