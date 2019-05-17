@@ -42,15 +42,29 @@ module.exports.update = async (req, res) => {
         const post = await Post.findOneAndUpdate({
             _id: req.params.id
         }, {$set}, {new: true})
+        res.json(post)
     } catch (e) {
         res.status(500).json(e)
     }
 }
 
 module.exports.remove = async (req, res) => {
-
+    try {
+        await Post.deleteOne({_id: req.params.id})
+        res.json({messase: 'Пост удален'})
+    } catch (e) {
+        res.status(500).json(e)
+    }
 }
 
 module.exports.addView = async (req, res) => {
-
+    const $set = {
+        views: ++req.body.views
+    }
+    try {
+        await Post.findByIdAndUpdate({_id: req.params.id}, {$set})
+        res.status(204).json()
+    } catch (e) {
+        res.status(500).json(e)
+    }
 }
