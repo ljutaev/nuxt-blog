@@ -36,17 +36,17 @@ module.exports.getById = async (req, res) => {
 
 module.exports.update = async (req, res) => {
     const $set = {
-        text = req.body.text
+      text: req.body.text
     }
     try {
-        const post = await Post.findOneAndUpdate({
-            _id: req.params.id
-        }, {$set}, {new: true})
-        res.json(post)
+      const post = await Post.findOneAndUpdate({
+        _id: req.params.id
+      }, {$set}, {new: true})
+      res.json(post)
     } catch (e) {
-        res.status(500).json(e)
+      res.status(500).json(e)
     }
-}
+  }
 
 module.exports.remove = async (req, res) => {
     try {

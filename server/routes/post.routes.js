@@ -7,35 +7,35 @@ const router = Router()
 // Admin
 // /api/post/admin
 router.post(
-    '/admin/', 
-    passport.authenticate('jwt', {session = false}),
+    '/admin/',
+    passport.authenticate('jwt', {session: false}),
     upload.single('image'),
     ctr.create
-)
-
-router.get(
-    '/admin/', 
-    passport.authenticate('jwt', {session = false}),
+  )
+  
+  router.get(
+    '/admin/',
+    passport.authenticate('jwt', {session: false}),
     ctr.getAll
-)
-
-router.get(
-    '/admin/:id', 
-    passport.authenticate('jwt', {session = false}),
+  )
+  
+  router.get(
+    '/admin/:id',
+    passport.authenticate('jwt', {session: false}),
     ctr.getById
-)
-
-router.put(
-    '/admin/:id', 
-    passport.authenticate('jwt', {session = false}),
+  )
+  
+  router.put(
+    '/admin/:id',
+    passport.authenticate('jwt', {session: false}),
     ctr.update
-)
-
-router.delete(
-    '/admin/:id', 
-    passport.authenticate('jwt', {session = false}),
+  )
+  
+  router.delete(
+    '/admin/:id',
+    passport.authenticate('jwt', {session: false}),
     ctr.remove
-)
+  )
 
 // Base
 // /api/post/
