@@ -7,7 +7,7 @@
         >
         <h1 class="mb-2">Создать новый пост</h1>
         <el-form-item class="mb-2" label="Введите название поста" prop="title">
-                <el-input  v-model.trim="controls.title" />
+                <el-input  v-model="controls.title" />
             </el-form-item>
             <el-form-item class="mb-2" label="Текст в формате .md или .html" prop="text">
                 <el-input type="textarea" :rows="10" v-model="controls.text" />

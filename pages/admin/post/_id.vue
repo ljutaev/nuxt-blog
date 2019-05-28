@@ -4,8 +4,6 @@
             <el-breadcrumb-item :to="{ path: '/admin/list' }">Посты</el-breadcrumb-item>
             <el-breadcrumb-item><a href="/">{{post.title}}</a></el-breadcrumb-item>
         </el-breadcrumb>
-        Post {{$route.params.id}}
-
         <el-form 
             :model="controls" 
             :rules="rules" 
@@ -92,6 +90,9 @@ export default {
                 }
             })
         } 
+    },
+    mounted() {
+        this.controls.text = this.post.text
     }
 }
 </script>
