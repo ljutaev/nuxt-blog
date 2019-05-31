@@ -9,7 +9,7 @@ const commentRoutes = require('./routes/comment.routes')
 const keys = require('./keys')
 const app = express()
 
-mongoose.connect(keys.MONGO_URI)
+mongoose.connect(keys.MONGO_URI, {useNewUrlParser: true})
     .then(() => console.log('Mongo connect'))
     .catch(error => console.error('Error'))
 // mongoose.set('useCreateIndex', true);

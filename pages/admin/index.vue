@@ -1,19 +1,28 @@
 <template>
     <div>
         <h1>Аналитика по постам</h1>
-        <canvas ref="canvas" height="50vh"></canvas>
+        <app-analytics-chart 
+            title="Количество просмотров"
+            :labels="views.labels"
+            :data="views.data"
+        />
+        <app-analytics-chart 
+            title="Количество коментариев"
+            :labels="comments.labels"
+            :data="comments.data"
+        />
     </div>
 </template>
 
 <script>
-import {Bar} from 'vue-chartjs'
+import AppAnalyticsChart from '@/components/admin/AnalyticsChart'
 export default {
     layout: 'admin',
     middleware: ['admin-auth'],
-    extends: Bar,
     async asyncData({store}) {
-        const analytics = await store.dispatch('post/getAnalytics')
-        return {analytics}
-    }
+        const {views, comments} = await store.dispatch('post/getAnalytics')
+        return {views, comments}
+    },
+    components: {AppAnalyticsChart}
 }
 </script>
